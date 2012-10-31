@@ -1,13 +1,27 @@
 <!Doctype html>
 <html>
 <head>
-<title>Ruby on Rails Tutorial Sample App | <%= @title %></title>
-<%=csrf_meta_tag %>
+<title><%= title %></title>
+
+<%= csrf_meta_tag %>
+<%= render 'layouts/stylesheets' %>
+
+<!--[if lt IE9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/hmtl5.js"></script>
+<![endif]-->
+
+<%= stylesheet_link_tag 'blueprint/screen.css', :media => 'screen' %>
+<%= stylesheet_link_tag 'blueprint/print.css', :media => 'print' %>
+<!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie.css' %><![endif]-->
+<%= stylesheet_link_tag 'custom', :media => 'screen' %>
 
 <body>
-<% = yield %>
-
+	<div class ="container">
+	<%= render 'layouts/header' %>
+	<section class="round">
+		<%= yield %>
+	</section>	
+	</div>
 </body>
 </head>
-
 </html>
